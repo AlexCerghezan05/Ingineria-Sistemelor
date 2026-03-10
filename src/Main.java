@@ -1,4 +1,4 @@
-
+import java.util.*;
 
 public class Main {
     public static void main(String[]args){
@@ -8,4 +8,49 @@ public class Main {
         System.out.println(s1);
         System.out.println(s2);
     }
+}
+
+// Laboratorul 2
+
+public static void main(String[] args) {
+    List<Integer> x = new ArrayList();
+    List<Integer> y = new ArrayList();
+
+    Random rnd= new Random();
+    for (int i=0;i<5;i++){
+        x.add(rnd.nextInt(11));
+    }
+    for(int i=0;i<7;i++){
+        y.add(rnd.nextInt(11));
+    }
+
+    Collections.sort(x);
+    Collections.sort(y);
+    System.out.println("Lista x:" + x);
+    System.out.println("Lista y: " + y);
+//a)
+    List<Integer> xPlusY = new ArrayList<>(x);
+    xPlusY.addAll(y);
+    Collections.sort(xPlusY);
+    System.out.println(" xPlusY: " + xPlusY);
+
+    //b)
+    Set<Integer> zSet = new TreeSet<>(x);
+    zSet.retainAll(y);
+    System.out.println(" zSet: " + zSet);
+
+    //c)
+    List<Integer> xMinusY = new ArrayList<>(x);
+    xMinusY.removeAll(y);
+    System.out.println(" xMinusY: " + xMinusY);
+
+    //d)
+    int p = 4;
+    List<Integer> xPlusYLimitedByP = new ArrayList<>();
+    for (Integer val : xPlusY) {
+        if (val <= p && !xPlusYLimitedByP.contains(val)) {
+            xPlusYLimitedByP.add(val);
+        }
+    }
+    System.out.println(" xPlusYLimitedByP (p=" + p + "): " + xPlusYLimitedByP);
 }
