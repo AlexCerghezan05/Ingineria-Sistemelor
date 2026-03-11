@@ -72,11 +72,11 @@ listaStudenti.add(new Student(120,"Alis", "Popa", "TI21/2"));
 
 //b)
     Student studentCautat= new Student(120, "Alis", "Popa", "TI21/2");
-    System.out.println("\nb) Este prezentă Alis Popa? : " + listaStudenti.contains(studentCautat));//c)
+    System.out.println("\n Este prezentă Alis Popa? : " + listaStudenti.contains(studentCautat));
 
 //c)
     Student studentCautat1 = new Student(112, "Maria", "Popa", "TI21/1");
-    System.out.println("c) Este prezentă Maria Popa? : " + listaStudenti.contains(studentCautat1));
+    System.out.println(" Este prezentă Maria Popa? : " + listaStudenti.contains(studentCautat1));
 }
 
 
