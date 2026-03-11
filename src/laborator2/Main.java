@@ -77,6 +77,25 @@ listaStudenti.add(new Student(120,"Alis", "Popa", "TI21/2"));
 //c)
     Student studentCautat1 = new Student(112, "Maria", "Popa", "TI21/1");
     System.out.println(" Este prezentă Maria Popa? : " + listaStudenti.contains(studentCautat1));
+
+
+//TEMA 2.5.3:
+      Set<Student> setStudenti=new HashSet<>();
+      setStudenti.add(new Student(112,"Maria","Popa","TI21/1"));
+      setStudenti.add(new Student(120,"Alis","Popa","TI21/2"));
+
+      System.out.println("Cati studenti contine acest set:");
+      for(Student student: setStudenti){
+          System.out.println(student);
+      }
+
+//b) Modificat:
+      Student cautareSet=new Student(120,"Alis","Popa","TI21/2");
+      System.out.println("\n Este prezenta Alis Popa in Set (O(1))? : " + setStudenti.contains(cautareSet));
+
+//c) Modificat:
+      Student cautareSet1=new Student(112,"Maria", "Popa","TI21/1");
+      System.out.println("Este prezentă Maria Popa în Set (O(1))? : " + setStudenti.contains(cautareSet1));
 }
 
 
