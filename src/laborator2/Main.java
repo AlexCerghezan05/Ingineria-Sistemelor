@@ -1,9 +1,12 @@
 import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[]args){
-        Student s1=new Student(575,"Andrei","Popa","Ingineria sistemelor multimedia grupa A");
-        Student s2=new Student(600,"Alex","Cerghezan","ISM grupa 21/1");
+        Student s1= new Student(575, "Andrei", "Popa", "Ingineria sistemelor multimedia grupa A");
+        Student s2= new Student(600, "Alex", "Cerghezan", "ISM grupa 21/1");
+
 
         System.out.println(s1);
         System.out.println(s2);
@@ -53,4 +56,34 @@ public static void main(String[] args) {
         }
     }
     System.out.println(" xPlusYLimitedByP (p=" + p + "): " + xPlusYLimitedByP);
+
+//Tema 2.5.2 Laborator 2
+
+
+List<Student> listaStudenti= new ArrayList<>();
+//a)
+    Student s4 = new Student(112, "Maria", "Popa", "TI21/1");
+listaStudenti.add(s4);
+listaStudenti.add(new Student(120,"Alis", "Popa", "TI21/2"));
+    System.out.println("Conținutul listei de studenți:");
+    for (Student student : listaStudenti) {
+        System.out.println(student);
+    }
+
+//b)
+    Student studentCautat= new Student(120, "Alis", "Popa", "TI21/2");
+    System.out.println("\nb) Este prezentă Alis Popa? : " + listaStudenti.contains(studentCautat));//c)
+
+//c)
+    Student studentCautat1 = new Student(112, "Maria", "Popa", "TI21/1");
+    System.out.println("c) Este prezentă Maria Popa? : " + listaStudenti.contains(studentCautat1));
 }
+
+
+
+
+
+
+
+
+
