@@ -55,5 +55,21 @@ public class Main {
             textSalvare=textSalvare+s.toString()+ "\n";
             Files.writeString(Path.of("studenti_out.txt"), textSalvare);
         }
+
+
+        //Tema 3.5.3
+        listaStudenti.sort((s1,s2)->{
+            int comparaFormatiedeStudiu=s1.formatieDeStudiu.compareTo(s2.formatieDeStudiu);
+            if(comparaFormatiedeStudiu!=0){
+                return comparaFormatiedeStudiu;
+            }
+            return s1.nume.compareTo(s2.nume);
+        });
+//Afisare lista studenti dupa Formatie de studiu
+        String textTema= "";
+        for(Student s: listaStudenti){
+            textTema=textTema+s.toString()+ "\n";
+        }
+        Files.writeString(Path.of("studenti_out_sorted.txt"),textTema);
     }
 }
