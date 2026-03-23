@@ -1,6 +1,7 @@
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
+import Laborator3.Student;
 
 public class Main {
     public static void main(String[]args){
