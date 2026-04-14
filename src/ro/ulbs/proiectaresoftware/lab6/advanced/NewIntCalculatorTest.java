@@ -2,6 +2,7 @@ package ro.ulbs.proiectaresoftware.lab6.advanced;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class NewIntCalculatorTest {
 
@@ -56,5 +57,30 @@ class NewIntCalculatorTest {
         //Assert
         int rezultatAsteptat= 5;
         assertEquals(rezultatAsteptat, calculator.result() ,"20/4 ar trebui sa fie 5" );
+    }
+
+    @Test
+    void multiplybyzero(){
+        //Arrange
+        NewIntCalculator calculator= new NewIntCalculator();
+        calculator.init();
+        calculator.add(15);
+        //Act
+        calculator.multiply(0);
+        //Assert
+        assertEquals(0, calculator.result() ,"15 *  0 = 0 tot timpul!" );
+    }
+
+    @Test
+    void dividebyzero(){
+        //Arrange
+        NewIntCalculator calculator= new NewIntCalculator();
+        calculator.init();
+        calculator.add(30);
+        //Act si Assert
+        assertThrows(ArithmeticException.class, () -> {
+            calculator.divide(0);
+        }, "Împărțirea la 0 la numere întregi trebuie să arunce ArithmeticException!");
+
     }
 }

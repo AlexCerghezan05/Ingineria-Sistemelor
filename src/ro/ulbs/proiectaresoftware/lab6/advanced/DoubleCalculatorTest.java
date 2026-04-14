@@ -56,4 +56,33 @@ class DoubleCalculatorTest {
         double rezultatAsteptat= 2.5;
         assertEquals(rezultatAsteptat, calculator.result(), 0.001, "10.0 / 4.0 = 2.5");
     }
+
+    @Test
+    void multiplyByZero() {
+        //Arrange
+        DoubleCalculator calculator = new DoubleCalculator();
+        calculator.init();
+        calculator.add(15.5);
+        //Act
+        calculator.multiply(0.0);
+
+        //Assert
+        double rezultatAsteptat = 0.0;
+        assertEquals(rezultatAsteptat, calculator.result(), 0.001, "15.5 * 0.0 = 0.0 Tot timpul!");
+    }
+
+    @Test
+    void divideByZero() {
+        //Arrange
+        DoubleCalculator calculator = new DoubleCalculator();
+        calculator.init();
+        calculator.add(10.0);
+
+        //Act
+        calculator.divide(0.0);
+
+        //Assert
+        double rezultatAsteptat = Double.POSITIVE_INFINITY;
+        assertEquals(rezultatAsteptat, calculator.result(), 0.001, "10.0 / 0.0 = infinit fiindca e double ");
+    }
 }
