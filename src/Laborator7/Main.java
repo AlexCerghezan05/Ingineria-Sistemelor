@@ -1,0 +1,23 @@
+package Laborator7;
+
+import Laborator7.Circle;
+import Laborator7.Form;
+import Laborator7.Square;
+import Laborator7.Triangle;
+
+public class Main {
+    public static void main(String[] args) {
+
+        // 7.6.1. Contor instante
+        Triangle tri = new Triangle(1.1F, 2.0F, "red");
+        Circle c = new Circle(1.5F, "yellow");
+        Square sq = new Square(1.2F, "blue");
+        System.out.println("Area = " + tri.getArea()+" details: " + tri);
+        System.out.println("Area = " + c.getArea() + " details: " + c);
+        System.out.println("Area = " + sq.getArea() + " details: " + sq);
+        System.out.println("Total instance count is " + Form.getInstanceCount());   // sau tri.getInstanceCount() sau sq.getInstanceCount()
+
+
+
+    }
+}
