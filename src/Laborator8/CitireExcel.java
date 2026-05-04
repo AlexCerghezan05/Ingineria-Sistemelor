@@ -46,6 +46,7 @@ public class CitireExcel {
             e.printStackTrace();
         }
         genereazaFisierCuMedie();
+        genereazaFisierCuFormulaMedie();
 
     }
 
@@ -93,6 +94,53 @@ public class CitireExcel {
 
         } catch (IOException e) {
             System.err.println("A apărut o eroare la crearea noului fișier.");
+            e.printStackTrace();
+        }
+    }
+
+
+    public static void genereazaFisierCuFormulaMedie() {
+        System.out.println("\n--- Începem generarea fișierului nr. 3 (cu formule Excel)... ---");
+        try {
+
+            String caleIntrare = "C:\\Users\\Alexandru Cerghezan\\IdeaProjects\\Ingineria-Sistemelor\\src\\Laborator8\\laborator8_input.xlsx";
+            FileInputStream fileIn = new FileInputStream(new File(caleIntrare));
+            XSSFWorkbook workbook = new XSSFWorkbook(fileIn);
+            XSSFSheet sheet = workbook.getSheetAt(0);
+
+            for (int i = 0; i <= sheet.getLastRowNum(); i++) {
+                Row row = sheet.getRow(i);
+                if (row == null) continue;
+
+                Cell newCell = row.createCell(6);
+
+                if (i == 0) {
+                    newCell.setCellValue("Media (Formula)");
+                } else {
+
+                    int randExcel = i + 1;
+
+
+                    String formula = "AVERAGE(D" + randExcel + ":F" + randExcel + ")";
+
+
+                    newCell.setCellFormula(formula);
+                }
+            }
+            fileIn.close();
+
+
+            String caleIesire = "C:\\Users\\Alexandru Cerghezan\\IdeaProjects\\Ingineria-Sistemelor\\laborator8_output3.xlsx";
+            FileOutputStream fileOut = new FileOutputStream(new File(caleIesire));
+            workbook.write(fileOut);
+
+            fileOut.close();
+            workbook.close();
+
+            System.out.println("SUCCES TOTAL! Fișierul 'laborator8_output3.xlsx' a fost generat.");
+
+        } catch (Exception e) {
+            System.err.println("Eroare la generarea fișierului cu formule:");
             e.printStackTrace();
         }
     }
